@@ -6,3 +6,7 @@ rvm:
   - 2.2.5
   - 2.3.1
 before_install: gem install bundler -v 1.12.4
+
+addons:
+  code_climate:
+    secure: "TyyZWLEFr9D5qLdImL12YBIDN8vOAnPcG1Hg2lgtfoPEQUK4HbF97IHcbQ/c1GYK1BlXWuIdX2BqFI386/z7hCpVEeJBFE0FeTPmEYn3Rg8aehoioyAsvo8euN8nxm8iM+/McYzVdKSPuWmM2TJAAFrqpZOZDTsANx51z3Q4jgunVfNxqZTF5c+8wLs4ELodZixrwZz0sEpjpbW49PQ8O4XbZqXhhfN5J8RXj1JKeQZSupnipqQXsCNSthv8tmWaedeXBwmfxqFtQYNZ6JwoBWOpPu3fitH2I8KU18OAhrrdZYD02JEjkTyxReR25s5w+OVFwlDtU3aHqDOtAaOa29wprz3zHT2o/e7lhRuUGmXK4X15UwJ7wUAIvmAjBGFAEojm0gQQdYWuZYD5ExP94lu6T659yKX5SQJZrTp73pJ5ltZUx5WWgP2x8z/9jV/j+AzM/wF25GY5WxjeMqq190z5fvc2Lq92YOcH+yZ8/n9troz+/l5UXaXvzX5s1e4lBfIoxZPH2u7yyvN6AXCfclZzPEByccizfFTSzjIUm7vsP0iAttBOcE5Q4iIiiHCqDAuGbYumg6oD/roq16PJ2uF/vY9XPr5Iefhwk5UEU/f16/KYfz1i3hsR+CGhaiulLeDeSx8b3cxlOO38KiTdXAtHeCvRV58pT4Dkx6RFBGY="
