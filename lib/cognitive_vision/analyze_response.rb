@@ -1,12 +1,14 @@
-class AnalyzeResponse
-  attr_reader :faces
+module CognitiveVision
+  class AnalyzeResponse
+    attr_reader :faces
 
-  def initialize(options = {})
-    @faces = options.fetch(:faces, [])
-  end
+    def initialize(options = {})
+      @faces = options.fetch(:faces, [])
+    end
 
-  def self.parse(response_hash)
-    faces = response_hash['faces'].map { |face| Face.new(gender: face['gender'], age: face['age']) }
-    new(faces: faces)
+    def self.parse(response_hash)
+      faces = response_hash['faces'].map { |face| Face.new(gender: face['gender'], age: face['age']) }
+      new(faces: faces)
+    end
   end
 end
