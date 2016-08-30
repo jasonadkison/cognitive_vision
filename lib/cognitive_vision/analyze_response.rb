@@ -7,6 +7,6 @@ class AnalyzeResponse
 
   def self.parse(response_hash)
     faces = response_hash['faces'].map { |face| Face.new(gender: face['gender'], age: face['age']) }
-    self.new(faces: faces)
+    new(faces: faces)
   end
 end
