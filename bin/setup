@@ -2,6 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 set -vx
+cp .env.sample .env
 
 bundle install
 
