@@ -18,3 +18,8 @@ VCR.configure do |c|
   c.hook_into :webmock
   c.configure_rspec_metadata!
 end
+
+# whitelist codeclimate.com so test coverage can be reported
+config.after(:suite) do
+  WebMock.disable_net_connect!(allow: 'codeclimate.com')
+end
