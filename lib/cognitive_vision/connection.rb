@@ -32,7 +32,7 @@ module CognitiveVision
       response = @http.request(request)
       body     = JSON.parse(response.body)
 
-      OpenStruct.new(code: response.code, body: body)
+      OpenStruct.new(code: response.code.to_i, body: body)
     end
   end
 end

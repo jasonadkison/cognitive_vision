@@ -16,6 +16,14 @@ module CognitiveVision
           expect(subject.faces.first.gender).to eq('Male')
         end
       end
+
+      context 'with a invalid url' do
+        let(:url) { 'http://images.example.com/mynonexistenturl.jpg' }
+
+        it 'raises an error' do
+          expect { subject }.to raise_error(AnalyzeImage::InvalidImageUrlError)
+        end
+      end
     end
   end
 end
