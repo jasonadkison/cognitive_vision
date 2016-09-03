@@ -20,8 +20,16 @@ module CognitiveVision
       context 'with a invalid url' do
         let(:url) { 'http://images.example.com/mynonexistenturl.jpg' }
 
-        it 'raises an error' do
+        it 'raises invalid image url error' do
           expect { subject }.to raise_error(AnalyzeImage::InvalidImageUrlError)
+        end
+      end
+
+      context 'with a bad quality image' do
+        let(:url) { 'http://bit.ly/2bJ7V3w' }
+
+        it 'raises invalid image size error' do
+          expect { subject }.to raise_error(AnalyzeImage::InvalidImageSizeError)
         end
       end
     end

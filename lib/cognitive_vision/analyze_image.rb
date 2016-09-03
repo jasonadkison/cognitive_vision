@@ -3,15 +3,28 @@ require 'net/http'
 
 module CognitiveVision
   class AnalyzeImage
-    class InvalidImageUrlError < StandardError; end
+    class InvalidImageSizeError < StandardError; end
+    class InvalidImageUrlError  < StandardError; end
+    class UnknownError          < StandardError; end
 
     def self.analyze_image(image_url)
       body     = { 'url' => image_url }
       params   = { 'visualFeatures' => 'Faces' }
       response = Connection.new.post('/analyze', params, body)
 
-      raise InvalidImageUrlError if response.code != 200
+      treat_errors(response) if response.code != 200
       AnalyzeResponse.parse(response.body)
+    end
+
+    def self.treat_errors(response)
+      case response.body['code']
+      when 'InvalidImageSize'
+        raise(InvalidImageSizeError, response.body['message'])
+      when 'InvalidImageUrl'
+        raise(InvalidImageUrlError, response.body['message'])
+      else
+        raise(UnknownError, response.body['message'])
+      end
     end
   end
 end

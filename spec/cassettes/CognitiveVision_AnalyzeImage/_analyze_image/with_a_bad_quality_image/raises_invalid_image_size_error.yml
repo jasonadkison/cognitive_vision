@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.projectoxford.ai/vision/v1.0//analyze?visualFeatures=Faces
     body:
       encoding: UTF-8
-      string: '{"url":"http://images.example.com/mynonexistenturl.jpg"}'
+      string: '{"url":"http://bit.ly/2bJ7V3w"}'
     headers:
       Content-Type:
       - application/json
@@ -27,28 +27,28 @@ http_interactions:
       Pragma:
       - no-cache
       Content-Length:
-      - '118'
+      - '143'
       Content-Type:
       - application/json; charset=utf-8
       Expires:
       - "-1"
       Set-Cookie:
-      - ai_session=8b82b7c86b9849bf853f63e11fcaee53|2016-08-31T21:00:37.0469243+00:00|2016-08-31T21:00:37.0469243+00:00;
-        expires=Wed, 31-Aug-2016 21:30:37 GMT; path=/
-      - ai_user=6a3e2ff275204a0492d9207519d81833|2016-08-31T21:00:37.0469243+00:00;
+      - ai_session=0868762b026343348db8c8dd79ee6500|2016-09-03T00:20:52.5056733+00:00|2016-09-03T00:20:52.6785594+00:00;
+        expires=Sat, 03-Sep-2016 00:50:52 GMT; path=/
+      - ai_user=bfc2cb758939499cbce930b703669cbd|2016-09-03T00:20:52.5056733+00:00;
         expires=Fri, 31-Dec-9999 23:59:59 GMT; path=/
       X-Aspnet-Version:
       - 4.0.30319
       X-Powered-By:
       - ASP.NET
       Apim-Request-Id:
-      - 12db53d4-bee4-4586-9c97-adc2588f5747
+      - fe054c42-ba37-4a1f-be9c-2c9df184520a
       Date:
-      - Wed, 31 Aug 2016 21:00:37 GMT
+      - Sat, 03 Sep 2016 00:20:52 GMT
     body:
       encoding: UTF-8
-      string: '{"code":"InvalidImageUrl","requestId":"12db53d4-bee4-4586-9c97-adc2588f5747","message":"Image
-        URL is not accessible."}'
+      string: '{"code":"InvalidImageSize","requestId":"fe054c42-ba37-4a1f-be9c-2c9df184520a","message":"Image
+        must be at least 50 pixels in width and height"}'
     http_version: 
-  recorded_at: Wed, 31 Aug 2016 21:00:39 GMT
+  recorded_at: Sat, 03 Sep 2016 00:20:55 GMT
 recorded_with: VCR 3.0.3
