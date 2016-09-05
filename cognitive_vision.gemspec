@@ -6,6 +6,7 @@ require 'cognitive_vision/version'
 Gem::Specification.new do |spec|
   spec.name          = 'cognitive_vision'
   spec.version       = CognitiveVision::VERSION
+  spec.version       = "#{spec.version}-alpha-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
   spec.authors       = ['Carlos Ribeiro']
   spec.email         = ['mail@carlosribeiro.me']
 
