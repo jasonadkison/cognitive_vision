@@ -32,6 +32,7 @@ module CognitiveVision
       response = @http.request(request)
       body     = JSON.parse(response.body)
 
+      raise RateLimitError if response.code.to_i == 429
       OpenStruct.new(code: response.code.to_i, body: body)
     end
   end

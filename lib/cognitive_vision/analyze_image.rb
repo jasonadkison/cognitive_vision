@@ -22,6 +22,8 @@ module CognitiveVision
         raise(InvalidImageSizeError, response.body['message'])
       when 'InvalidImageUrl'
         raise(InvalidImageUrlError, response.body['message'])
+      when 'InvalidImageUrl'
+        raise(InvalidImageUrlError, response.body['message'])
       else
         raise(UnknownError, response.body['message'])
       end

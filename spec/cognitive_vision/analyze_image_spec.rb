@@ -33,6 +33,20 @@ module CognitiveVision
         end
       end
 
+      context 'with API rate limit exceeded' do
+        let(:url) { 'http://bit.ly/2bJ7V3w' }
+
+        it 'raises rate limit error' do
+          VCR.eject_cassette
+          VCR.turned_off do
+            stub_request(:any, /.*/)
+              .to_return(body: { statusCode: 429, message: 'Rate limit is exceeded. Try again in 15 seconds.' }.to_json,
+                         status: 429)
+            expect { subject }.to raise_error(RateLimitError)
+          end
+        end
+      end
+
       context 'with a untreated error' do
         let(:url) { 'http://bit.ly/2bJ7V3w' }
 

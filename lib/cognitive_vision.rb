@@ -6,6 +6,8 @@ require 'cognitive_vision/analyze_response'
 require 'cognitive_vision/analyze_image'
 
 module CognitiveVision
+  class RateLimitError < StandardError; end
+
   def self.configuration
     @configuration ||= Configuration.new
   end
