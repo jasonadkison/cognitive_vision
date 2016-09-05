@@ -32,6 +32,19 @@ module CognitiveVision
           expect { subject }.to raise_error(AnalyzeImage::InvalidImageSizeError)
         end
       end
+
+      context 'with a untreated error' do
+        let(:url) { 'http://bit.ly/2bJ7V3w' }
+
+        it 'raises unknown error' do
+          VCR.eject_cassette
+          VCR.turned_off do
+            stub_request(:any, /.*/)
+              .to_return(body: { code: 'AUnknownError', message: 'Error' }.to_json, status: 400)
+            expect { subject }.to raise_error(AnalyzeImage::UnknownError)
+          end
+        end
+      end
     end
   end
 end

@@ -13,6 +13,7 @@ require 'cognitive_vision'
 require 'dotenv'
 require 'pry'
 require 'vcr'
+require 'webmock/rspec'
 
 Dotenv.load
 
