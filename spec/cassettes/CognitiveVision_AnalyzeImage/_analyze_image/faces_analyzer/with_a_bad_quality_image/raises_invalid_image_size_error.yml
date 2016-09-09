@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.projectoxford.ai/vision/v1.0//analyze?visualFeatures=Faces
+    uri: https://api.projectoxford.ai/vision/v1.0//analyze?visualFeatures=faces
     body:
       encoding: UTF-8
       string: '{"url":"http://bit.ly/2bJ7V3w"}'
@@ -32,23 +32,18 @@ http_interactions:
       - application/json; charset=utf-8
       Expires:
       - "-1"
-      Set-Cookie:
-      - ai_session=0868762b026343348db8c8dd79ee6500|2016-09-03T00:20:52.5056733+00:00|2016-09-03T00:20:52.6785594+00:00;
-        expires=Sat, 03-Sep-2016 00:50:52 GMT; path=/
-      - ai_user=bfc2cb758939499cbce930b703669cbd|2016-09-03T00:20:52.5056733+00:00;
-        expires=Fri, 31-Dec-9999 23:59:59 GMT; path=/
       X-Aspnet-Version:
       - 4.0.30319
       X-Powered-By:
       - ASP.NET
       Apim-Request-Id:
-      - fe054c42-ba37-4a1f-be9c-2c9df184520a
+      - 87147d34-c2b9-4237-9145-bd1d4913eb7b
       Date:
-      - Sat, 03 Sep 2016 00:20:52 GMT
+      - Fri, 09 Sep 2016 15:13:56 GMT
     body:
       encoding: UTF-8
-      string: '{"code":"InvalidImageSize","requestId":"fe054c42-ba37-4a1f-be9c-2c9df184520a","message":"Image
+      string: '{"code":"InvalidImageSize","requestId":"87147d34-c2b9-4237-9145-bd1d4913eb7b","message":"Image
         must be at least 50 pixels in width and height"}'
     http_version: 
-  recorded_at: Sat, 03 Sep 2016 00:20:55 GMT
+  recorded_at: Fri, 09 Sep 2016 15:13:56 GMT
 recorded_with: VCR 3.0.3

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.projectoxford.ai/vision/v1.0//analyze?visualFeatures=Faces
+    uri: https://api.projectoxford.ai/vision/v1.0//analyze?visualFeatures=faces
     body:
       encoding: UTF-8
       string: '{"url":"http://vignette4.wikia.nocookie.net/gameofthrones/images/5/56/Jon_Kill_the_Boy.jpg"}'
@@ -32,22 +32,17 @@ http_interactions:
       - application/json; charset=utf-8
       Expires:
       - "-1"
-      Set-Cookie:
-      - ai_session=1d7a98b6681c4ef084bc92f9ee7ee317|2016-09-03T00:20:50.0546208+00:00|2016-09-03T00:20:51.2421096+00:00;
-        expires=Sat, 03-Sep-2016 00:50:51 GMT; path=/
-      - ai_user=c9f34dd2d2a1478fb2e3cdd259b18c2d|2016-09-03T00:20:50.0546208+00:00;
-        expires=Fri, 31-Dec-9999 23:59:59 GMT; path=/
       X-Aspnet-Version:
       - 4.0.30319
       X-Powered-By:
       - ASP.NET
       Apim-Request-Id:
-      - 4aad3f44-0970-4bd1-897a-ed680bfaf5e5
+      - e4683bdf-9222-4419-82f0-497fd21de420
       Date:
-      - Sat, 03 Sep 2016 00:20:51 GMT
+      - Fri, 09 Sep 2016 15:18:29 GMT
     body:
       encoding: UTF-8
-      string: '{"requestId":"4aad3f44-0970-4bd1-897a-ed680bfaf5e5","metadata":{"width":4057,"height":2700,"format":"Jpeg"},"faces":[{"age":32,"gender":"Male","faceRectangle":{"left":1963,"top":610,"width":667,"height":667}}]}'
+      string: '{"requestId":"e4683bdf-9222-4419-82f0-497fd21de420","metadata":{"width":4057,"height":2700,"format":"Jpeg"},"faces":[{"age":33,"gender":"Male","faceRectangle":{"left":1950,"top":599,"width":682,"height":682}}]}'
     http_version: 
-  recorded_at: Sat, 03 Sep 2016 00:20:53 GMT
+  recorded_at: Fri, 09 Sep 2016 15:18:30 GMT
 recorded_with: VCR 3.0.3
