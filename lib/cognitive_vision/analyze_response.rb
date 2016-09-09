@@ -3,7 +3,7 @@ module CognitiveVision
     attr_reader :adult, :faces
 
     def initialize(options = {})
-      @adult = options.fetch(:adult, {})
+      @adult = options.fetch(:adult, nil)
       @faces = options.fetch(:faces, [])
     end
 
