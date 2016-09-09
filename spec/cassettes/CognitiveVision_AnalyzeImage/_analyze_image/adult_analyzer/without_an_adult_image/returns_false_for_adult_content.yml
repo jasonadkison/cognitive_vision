@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.projectoxford.ai/vision/v1.0//analyze?visualFeatures=faces
+    uri: https://api.projectoxford.ai/vision/v1.0//analyze?visualFeatures=adult
     body:
       encoding: UTF-8
-      string: '{"url":"http://images.example.com/mynonexistenturl.jpg"}'
+      string: '{"url":"http://bit.ly/2cLynuH"}'
     headers:
       Content-Type:
       - application/json
@@ -19,15 +19,15 @@ http_interactions:
       - "<API_KEY>"
   response:
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
     headers:
       Cache-Control:
       - no-cache
       Pragma:
       - no-cache
       Content-Length:
-      - '118'
+      - '227'
       Content-Type:
       - application/json; charset=utf-8
       Expires:
@@ -37,13 +37,12 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Apim-Request-Id:
-      - 4eabbed3-596f-488b-a433-492fbff2566d
+      - cb8cc9ce-f886-48ae-a3c3-80be8cccb15f
       Date:
-      - Fri, 09 Sep 2016 15:13:55 GMT
+      - Fri, 09 Sep 2016 17:27:14 GMT
     body:
       encoding: UTF-8
-      string: '{"code":"InvalidImageUrl","requestId":"4eabbed3-596f-488b-a433-492fbff2566d","message":"Image
-        URL is not accessible."}'
+      string: '{"adult":{"isAdultContent":false,"isRacyContent":false,"adultScore":0.049632348120212555,"racyScore":0.18380215764045715},"requestId":"cb8cc9ce-f886-48ae-a3c3-80be8cccb15f","metadata":{"width":630,"height":371,"format":"Jpeg"}}'
     http_version: 
-  recorded_at: Fri, 09 Sep 2016 15:13:55 GMT
+  recorded_at: Fri, 09 Sep 2016 17:27:15 GMT
 recorded_with: VCR 3.0.3

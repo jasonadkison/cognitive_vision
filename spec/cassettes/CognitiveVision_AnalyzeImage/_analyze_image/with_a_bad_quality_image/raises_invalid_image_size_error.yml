@@ -37,13 +37,13 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Apim-Request-Id:
-      - 87147d34-c2b9-4237-9145-bd1d4913eb7b
+      - d8da8ff9-b00a-479e-a048-bd587f7ec742
       Date:
-      - Fri, 09 Sep 2016 15:13:56 GMT
+      - Fri, 09 Sep 2016 15:29:26 GMT
     body:
       encoding: UTF-8
-      string: '{"code":"InvalidImageSize","requestId":"87147d34-c2b9-4237-9145-bd1d4913eb7b","message":"Image
+      string: '{"code":"InvalidImageSize","requestId":"d8da8ff9-b00a-479e-a048-bd587f7ec742","message":"Image
         must be at least 50 pixels in width and height"}'
     http_version: 
-  recorded_at: Fri, 09 Sep 2016 15:13:56 GMT
+  recorded_at: Fri, 09 Sep 2016 15:29:27 GMT
 recorded_with: VCR 3.0.3

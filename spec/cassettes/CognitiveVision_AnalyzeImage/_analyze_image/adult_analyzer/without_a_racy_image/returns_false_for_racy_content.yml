@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.projectoxford.ai/vision/v1.0//analyze?visualFeatures=faces
+    uri: https://api.projectoxford.ai/vision/v1.0//analyze?visualFeatures=adult
     body:
       encoding: UTF-8
-      string: '{"url":"http://vignette4.wikia.nocookie.net/gameofthrones/images/5/56/Jon_Kill_the_Boy.jpg"}'
+      string: '{"url":"http://bit.ly/2bZvQvK"}'
     headers:
       Content-Type:
       - application/json
@@ -27,7 +27,7 @@ http_interactions:
       Pragma:
       - no-cache
       Content-Length:
-      - '210'
+      - '228'
       Content-Type:
       - application/json; charset=utf-8
       Expires:
@@ -37,12 +37,12 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Apim-Request-Id:
-      - e2818ef6-b857-47b9-a9e9-c1415fe58606
+      - 86db783d-13c9-4d46-80ae-af188a415a78
       Date:
-      - Fri, 09 Sep 2016 15:29:29 GMT
+      - Fri, 09 Sep 2016 17:29:43 GMT
     body:
       encoding: UTF-8
-      string: '{"requestId":"e2818ef6-b857-47b9-a9e9-c1415fe58606","metadata":{"width":4057,"height":2700,"format":"Jpeg"},"faces":[{"age":33,"gender":"Male","faceRectangle":{"left":1950,"top":599,"width":682,"height":682}}]}'
+      string: '{"adult":{"isAdultContent":false,"isRacyContent":false,"adultScore":0.010075492784380913,"racyScore":0.011676992289721966},"requestId":"86db783d-13c9-4d46-80ae-af188a415a78","metadata":{"width":790,"height":527,"format":"Jpeg"}}'
     http_version: 
-  recorded_at: Fri, 09 Sep 2016 15:29:29 GMT
+  recorded_at: Fri, 09 Sep 2016 17:29:44 GMT
 recorded_with: VCR 3.0.3

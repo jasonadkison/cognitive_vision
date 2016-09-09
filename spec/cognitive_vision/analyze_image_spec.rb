@@ -3,8 +3,53 @@ require 'spec_helper'
 module CognitiveVision
   describe AnalyzeImage, :vcr do
     describe '.analyze_image' do
+      subject { described_class.analyze_image(url) }
+
+      context 'with a invalid url' do
+        let(:url) { 'http://images.example.com/mynonexistenturl.jpg' }
+
+        it 'raises invalid image url error' do
+          expect { subject }.to raise_error(AnalyzeImage::InvalidImageUrlError)
+        end
+      end
+
+      context 'with a bad quality image' do
+        let(:url) { 'http://bit.ly/2bJ7V3w' }
+
+        it 'raises invalid image size error' do
+          expect { subject }.to raise_error(AnalyzeImage::InvalidImageSizeError)
+        end
+      end
+
+      context 'with API rate limit exceeded' do
+        let(:url) { 'http://bit.ly/2bJ7V3w' }
+
+        it 'raises rate limit error' do
+          VCR.eject_cassette
+          VCR.turned_off do
+            stub_request(:any, /.*/)
+              .to_return(body: { statusCode: 429, message: 'Rate limit is exceeded. Try again in 15 seconds.' }.to_json,
+                         status: 429)
+            expect { subject }.to raise_error(RateLimitError)
+          end
+        end
+      end
+
+      context 'with a untreated error' do
+        let(:url) { 'http://bit.ly/2bJ7V3w' }
+
+        it 'raises unknown error' do
+          VCR.eject_cassette
+          VCR.turned_off do
+            stub_request(:any, /.*/)
+              .to_return(body: { code: 'AUnknownError', message: 'Error' }.to_json, status: 400)
+            expect { subject }.to raise_error(AnalyzeImage::UnknownError)
+          end
+        end
+      end
+
       context 'faces analyzer' do
-        subject { described_class.analyze_image(url) }
+        subject { described_class.analyze_image(url, [:faces]) }
 
         context 'with a valid url' do
           let(:url) { 'http://vignette4.wikia.nocookie.net/gameofthrones/images/5/56/Jon_Kill_the_Boy.jpg' }
@@ -17,47 +62,40 @@ module CognitiveVision
             expect(subject.faces.first.gender).to eq('Male')
           end
         end
+      end
 
-        context 'with a invalid url' do
-          let(:url) { 'http://images.example.com/mynonexistenturl.jpg' }
+      context 'adult analyzer' do
+        subject { described_class.analyze_image(url, [:adult]) }
 
-          it 'raises invalid image url error' do
-            expect { subject }.to raise_error(AnalyzeImage::InvalidImageUrlError)
+        context 'with an adult image' do
+          let(:url) { 'http://bit.ly/2cIyJy1' }
+
+          it 'returns true for adult content' do
+            expect(subject.adult.adult_content?).to be_truthy
           end
         end
 
-        context 'with a bad quality image' do
-          let(:url) { 'http://bit.ly/2bJ7V3w' }
+        context 'without an adult image' do
+          let(:url) { 'http://bit.ly/2cLynuH' }
 
-          it 'raises invalid image size error' do
-            expect { subject }.to raise_error(AnalyzeImage::InvalidImageSizeError)
+          it 'returns false for adult content' do
+            expect(subject.adult.adult_content?).to be_falsey
           end
         end
 
-        context 'with API rate limit exceeded' do
-          let(:url) { 'http://bit.ly/2bJ7V3w' }
+        context 'with a racy image' do
+          let(:url) { 'http://bit.ly/2cgPzCU' }
 
-          it 'raises rate limit error' do
-            VCR.eject_cassette
-            VCR.turned_off do
-              stub_request(:any, /.*/)
-                .to_return(body: { statusCode: 429, message: 'Rate limit is exceeded. Try again in 15 seconds.' }.to_json,
-                           status: 429)
-              expect { subject }.to raise_error(RateLimitError)
-            end
+          it 'returns true for racy content' do
+            expect(subject.adult.racy_content?).to be_truthy
           end
         end
 
-        context 'with a untreated error' do
-          let(:url) { 'http://bit.ly/2bJ7V3w' }
+        context 'without a racy image' do
+          let(:url) { 'http://bit.ly/2bZvQvK' }
 
-          it 'raises unknown error' do
-            VCR.eject_cassette
-            VCR.turned_off do
-              stub_request(:any, /.*/)
-                .to_return(body: { code: 'AUnknownError', message: 'Error' }.to_json, status: 400)
-              expect { subject }.to raise_error(AnalyzeImage::UnknownError)
-            end
+          it 'returns false for racy content' do
+            expect(subject.adult.racy_content?).to be_falsey
           end
         end
       end
