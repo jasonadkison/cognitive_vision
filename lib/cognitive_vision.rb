@@ -1,6 +1,7 @@
 require 'cognitive_vision/version'
 require 'cognitive_vision/configuration'
 require 'cognitive_vision/connection'
+require 'cognitive_vision/image_features'
 require 'cognitive_vision/adult'
 require 'cognitive_vision/category'
 require 'cognitive_vision/face'

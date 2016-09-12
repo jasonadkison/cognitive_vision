@@ -8,7 +8,7 @@ module CognitiveVision
       @faces      = options.fetch(:faces, [])
     end
 
-    def self.parse(response_hash)
+    def self.parse(response_hash, features)
       faces = (response_hash['faces'] || []).map { |face| Face.new(gender: face['gender'], age: face['age']) }
       adult = if response_hash['adult']
                 adult_response = response_hash['adult']
