@@ -1,10 +1,11 @@
 module CognitiveVision
   class ImageFeatures
     ANALYZERS = {
-      adult:      ImageFeature::Adult.new,
-      categories: ImageFeature::Category.new,
-      faces:      ImageFeature::Face.new,
-      tags:       ImageFeature::Tag.new
+      adult:       ImageFeature::Adult.new,
+      categories:  ImageFeature::Category.new,
+      description: ImageFeature::Description.new,
+      faces:       ImageFeature::Face.new,
+      tags:        ImageFeature::Tag.new
     }
 
     def initialize(features)

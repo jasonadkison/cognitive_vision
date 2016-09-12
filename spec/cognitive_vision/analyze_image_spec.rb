@@ -117,6 +117,19 @@ module CognitiveVision
           expect(subject.tags.first.name).to eq('animal')
         end
       end
+
+      context 'description analyzer' do
+        subject { described_class.analyze_image(url, :description) }
+        let(:url) { 'http://bit.ly/2cmdzpS' }
+
+        it 'returns the tags of the image' do
+          expect(subject.description.tags.size).to eq(20)
+        end
+
+        it 'returns the captions from the image' do
+          expect(subject.description.captions.first.text).to eq('a close up of a bird feeder')
+        end
+      end
     end
   end
 end
