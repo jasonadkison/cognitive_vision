@@ -9,10 +9,10 @@ module CognitiveVision
     end
 
     def self.parse(response_hash, features)
-      options = features.analyzers.map do |analyzer|
-                  [analyzer.key.to_sym, analyzer.parse(response_hash)]
-                end.to_h
-      new(options)
+      parsed = features.analyzers.map do |analyzer|
+                 [analyzer.key.to_sym, analyzer.parse(response_hash)]
+               end
+      new(Hash[parsed])
     end
   end
 end
