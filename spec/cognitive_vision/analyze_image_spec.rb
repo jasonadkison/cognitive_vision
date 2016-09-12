@@ -108,6 +108,15 @@ module CognitiveVision
           expect(subject.categories.first.name).to eq('animal_panda')
         end
       end
+
+      context 'tags analyzer' do
+        subject { described_class.analyze_image(url, :tags) }
+        let(:url) { 'http://bit.ly/2cg46o2' }
+
+        it 'returns the tags of the image' do
+          expect(subject.tags.first.name).to eq('animal')
+        end
+      end
     end
   end
 end

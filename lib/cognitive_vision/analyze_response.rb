@@ -1,11 +1,12 @@
 module CognitiveVision
   class AnalyzeResponse
-    attr_reader :adult, :categories, :faces
+    attr_reader :adult, :categories, :faces, :tags
 
     def initialize(options = {})
       @adult      = options.fetch(:adult, nil)
       @categories = options.fetch(:categories, [])
       @faces      = options.fetch(:faces, [])
+      @tags       = options.fetch(:tags, [])
     end
 
     def self.parse(response_hash, features)
