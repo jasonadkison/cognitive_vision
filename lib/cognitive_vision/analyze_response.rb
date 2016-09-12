@@ -1,10 +1,11 @@
 module CognitiveVision
   class AnalyzeResponse
-    attr_reader :adult, :faces
+    attr_reader :adult, :categories, :faces
 
     def initialize(options = {})
-      @adult = options.fetch(:adult, nil)
-      @faces = options.fetch(:faces, [])
+      @adult      = options.fetch(:adult, nil)
+      @categories = options.fetch(:categories, [])
+      @faces      = options.fetch(:faces, [])
     end
 
     def self.parse(response_hash)
@@ -15,7 +16,8 @@ module CognitiveVision
                           racy_content: adult_response['isRacyContent'], adult_score: adult_response['adultScore'],
                           racy_score: adult_response['racyScore'])
               end
-      new(faces: faces, adult: adult)
+      categories = (response_hash['categories'] || []).map { |category| Category.new(name: category['name'], score: category['score']) }
+      new(faces: faces, adult: adult, categories: categories)
     end
   end
 end

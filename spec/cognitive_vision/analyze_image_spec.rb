@@ -99,6 +99,15 @@ module CognitiveVision
           end
         end
       end
+
+      context 'categories analyzer' do
+        subject { described_class.analyze_image(url, :categories) }
+        let(:url) { 'http://bit.ly/2cqO4VM' }
+
+        it 'returns the category of the image' do
+          expect(subject.categories.first.name).to eq('animal_panda')
+        end
+      end
     end
   end
 end
