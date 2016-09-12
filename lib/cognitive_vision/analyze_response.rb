@@ -9,15 +9,10 @@ module CognitiveVision
     end
 
     def self.parse(response_hash, features)
-      faces = (response_hash['faces'] || []).map { |face| Face.new(gender: face['gender'], age: face['age']) }
-      adult = if response_hash['adult']
-                adult_response = response_hash['adult']
-                Adult.new(adult_content: adult_response['isAdultContent'],
-                          racy_content: adult_response['isRacyContent'], adult_score: adult_response['adultScore'],
-                          racy_score: adult_response['racyScore'])
-              end
-      categories = (response_hash['categories'] || []).map { |category| Category.new(name: category['name'], score: category['score']) }
-      new(faces: faces, adult: adult, categories: categories)
+      options = features.analyzers.map do |analyzer|
+                  [analyzer.key.to_sym, analyzer.parse(response_hash)]
+                end.to_h
+      new(options)
     end
   end
 end
