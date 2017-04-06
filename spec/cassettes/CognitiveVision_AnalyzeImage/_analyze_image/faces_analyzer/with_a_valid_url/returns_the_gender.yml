@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.projectoxford.ai/vision/v1.0//analyze?visualFeatures=faces
+    uri: https://westus.api.cognitive.microsoft.com/vision/v1.0//analyze?visualFeatures=faces
     body:
       encoding: UTF-8
       string: '{"url":"http://vignette4.wikia.nocookie.net/gameofthrones/images/5/56/Jon_Kill_the_Boy.jpg"}'
