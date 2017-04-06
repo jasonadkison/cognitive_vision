@@ -3,7 +3,7 @@ require 'uri'
 
 module CognitiveVision
   class Connection
-    ENDPOINT = 'https://api.projectoxford.ai/vision/v1.0/'.freeze
+    ENDPOINT = 'https://westus.api.cognitive.microsoft.com/vision/v1.0/'.freeze
 
     def initialize
       @uri          = URI(ENDPOINT)
