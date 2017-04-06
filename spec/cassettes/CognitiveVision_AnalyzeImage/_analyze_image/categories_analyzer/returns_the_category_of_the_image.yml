@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.projectoxford.ai/vision/v1.0//analyze?visualFeatures=categories
+    uri: https://westus.api.cognitive.microsoft.com/vision/v1.0//analyze?visualFeatures=categories
     body:
       encoding: UTF-8
       string: '{"url":"http://bit.ly/2cqO4VM"}'
