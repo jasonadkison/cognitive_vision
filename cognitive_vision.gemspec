@@ -6,8 +6,8 @@ require 'cognitive_vision/version'
 Gem::Specification.new do |spec|
   spec.name          = 'cognitive_vision'
   spec.version       = CognitiveVision::VERSION
-  spec.authors       = ['Carlos Ribeiro']
-  spec.email         = ['mail@carlosribeiro.me']
+  spec.authors       = ['Carlos Ribeiro', 'Jason Adkison']
+  spec.email         = ['mail@carlosribeiro.me', 'jadkison@gmail.com']
 
   spec.summary       = 'Client to integrate with Microsoft Cognitive - Computer Vision API'
   spec.description   = 'Client to integrate with Microsoft Cognitive - Computer Vision API'
